@@ -1,0 +1,599 @@
+show dbs
+admin   40.00 KiB
+config  36.00 KiB
+local   72.00 KiB
+vit     72.00 KiB
+use vit
+switched to db vit
+db.Employee.find().pretty
+[Function: pretty] {
+  returnType: 'this',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  apiVersions: [ 0, Infinity ],
+  topologies: [ 'ReplSet', 'Standalone', 'Sharded', 'LoadBalanced' ],
+  returnsPromise: false,
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  newShellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+show collections
+Employee
+db.Employee.find().pretty
+[Function: pretty] {
+  returnType: 'this',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  apiVersions: [ 0, Infinity ],
+  topologies: [ 'ReplSet', 'Standalone', 'Sharded', 'LoadBalanced' ],
+  returnsPromise: false,
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  newShellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+db.Employee
+vit.Employee
+db.books.insertOne({})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a15980d285bd7175bfaef6d')
+}
+db.books.insertOne({
+  title: ''MongoDB inserOne,
+  isbn: '0-7617-6154-3'
+});
+SyntaxError: Unexpected token, expected "," (2:11)
+
+  1 | db.books.insertOne({
+> 2 |   title: ''MongoDB inserOne,
+    |            ^
+  3 |   isbn: '0-7617-6154-3'
+  4 | });
+db.books.insertOne({
+  title: 'MongoDB inserOne',
+  isbn: '0-7617-6154-3'
+});
+{
+  acknowledged: true,
+  insertedId: ObjectId('6a15988c285bd7175bfaef6e')
+}
+db.products.insertMany([
+    { "_id" : 1, "name" : "xPhone", "price" : 799, "releaseDate": ISODate("2011-05-14"), "spec" : { "ram" : 4, "screen" : 6.5, "cpu" : 2.66 },"color":["white","black"],"storage":[64,128,256]},
+    { "_id" : 2, "name" : "xTablet", "price" : 899, "releaseDate": ISODate("2011-09-01") , "spec" : { "ram" : 16, "screen" : 9.5, "cpu" : 3.66 },"color":["white","black","purple"],"storage":[128,256,512]},
+    { "_id" : 3, "name" : "SmartTablet", "price" : 899, "releaseDate": ISODate("2015-01-14"), "spec" : { "ram" : 12, "screen" : 9.7, "cpu" : 3.66 },"color":["blue"],"storage":[16,64,128]},
+    { "_id" : 4, "name" : "SmartPad", "price" : 699, "releaseDate": ISODate("2020-05-14"),"spec" : { "ram" : 8, "screen" : 9.7, "cpu" : 1.66 },"color":["white","orange","gold","gray"],"storage":[128,256,1024]},
+    { "_id" : 5, "name" : "SmartPhone", "price" : 599,"releaseDate": ISODate("2022-09-14"), "spec" : { "ram" : 4, "screen" : 5.7, "cpu" : 1.66 },"color":["white","orange","gold","gray"],"storage":[128,256]}
+ ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': 1,
+    '1': 2,
+    '2': 3,
+    '3': 4,
+    '4': 5
+  }
+}
+db.products.find()
+{
+  _id: 1,
+  name: 'xPhone',
+  price: 799,
+  releaseDate: 2011-05-14T00:00:00.000Z,
+  spec: {
+    ram: 4,
+    screen: 6.5,
+    cpu: 2.66
+  },
+  color: [
+    'white',
+    'black'
+  ],
+  storage: [
+    64,
+    128,
+    256
+  ]
+}
+{
+  _id: 2,
+  name: 'xTablet',
+  price: 899,
+  releaseDate: 2011-09-01T00:00:00.000Z,
+  spec: {
+    ram: 16,
+    screen: 9.5,
+    cpu: 3.66
+  },
+  color: [
+    'white',
+    'black',
+    'purple'
+  ],
+  storage: [
+    128,
+    256,
+    512
+  ]
+}
+{
+  _id: 3,
+  name: 'SmartTablet',
+  price: 899,
+  releaseDate: 2015-01-14T00:00:00.000Z,
+  spec: {
+    ram: 12,
+    screen: 9.7,
+    cpu: 3.66
+  },
+  color: [
+    'blue'
+  ],
+  storage: [
+    16,
+    64,
+    128
+  ]
+}
+{
+  _id: 4,
+  name: 'SmartPad',
+  price: 699,
+  releaseDate: 2020-05-14T00:00:00.000Z,
+  spec: {
+    ram: 8,
+    screen: 9.7,
+    cpu: 1.66
+  },
+  color: [
+    'white',
+    'orange',
+    'gold',
+    'gray'
+  ],
+  storage: [
+    128,
+    256,
+    1024
+  ]
+}
+{
+  _id: 5,
+  name: 'SmartPhone',
+  price: 599,
+  releaseDate: 2022-09-14T00:00:00.000Z,
+  spec: {
+    ram: 4,
+    screen: 5.7,
+    cpu: 1.66
+  },
+  color: [
+    'white',
+    'orange',
+    'gold',
+    'gray'
+  ],
+  storage: [
+    128,
+    256
+  ]
+}
+db.products.findOne({})
+{
+  _id: 1,
+  name: 'xPhone',
+  price: 799,
+  releaseDate: 2011-05-14T00:00:00.000Z,
+  spec: {
+    ram: 4,
+    screen: 6.5,
+    cpu: 2.66
+  },
+  color: [
+    'white',
+    'black'
+  ],
+  storage: [
+    64,
+    128,
+    256
+  ]
+}
+db.products.findOne({}_id: 2)
+SyntaxError: Unexpected token, expected "," (1:22)
+
+> 1 | db.products.findOne({}_id: 2)
+    |                       ^
+db.products.findOne({_id: 2})
+{
+  _id: 2,
+  name: 'xTablet',
+  price: 899,
+  releaseDate: 2011-09-01T00:00:00.000Z,
+  spec: {
+    ram: 16,
+    screen: 9.5,
+    cpu: 3.66
+  },
+  color: [
+    'white',
+    'black',
+    'purple'
+  ],
+  storage: [
+    128,
+    256,
+    512
+  ]
+}
+db.products.findOne({_id: 5}, {name: 1})
+{
+  _id: 5,
+  name: 'SmartPhone'
+}
+db.products.findOne({_id: 5}, {name: 0})
+{
+  _id: 5,
+  price: 599,
+  releaseDate: 2022-09-14T00:00:00.000Z,
+  spec: {
+    ram: 4,
+    screen: 5.7,
+    cpu: 1.66
+  },
+  color: [
+    'white',
+    'orange',
+    'gold',
+    'gray'
+  ],
+  storage: [
+    128,
+    256
+  ]
+}
+db.products.findOne({_id: 5}, {name: 1, _id: 0})
+{
+  name: 'SmartPhone'
+}
+db.products.find({}, {name: 1, price: 1})
+{
+  _id: 1,
+  name: 'xPhone',
+  price: 799
+}
+{
+  _id: 2,
+  name: 'xTablet',
+  price: 899
+}
+{
+  _id: 3,
+  name: 'SmartTablet',
+  price: 899
+}
+{
+  _id: 4,
+  name: 'SmartPad',
+  price: 699
+}
+{
+  _id: 5,
+  name: 'SmartPhone',
+  price: 599
+}
+db.products.find(
+  {},
+  {
+    name: 1,
+    "spec.ram": 1,
+    firstStorage: { $arrayElemAt: ["$storage", 1] }
+  }
+)
+{
+  _id: 1,
+  name: 'xPhone',
+  spec: {
+    ram: 4
+  },
+  firstStorage: 128
+}
+{
+  _id: 2,
+  name: 'xTablet',
+  spec: {
+    ram: 16
+  },
+  firstStorage: 256
+}
+{
+  _id: 3,
+  name: 'SmartTablet',
+  spec: {
+    ram: 12
+  },
+  firstStorage: 64
+}
+{
+  _id: 4,
+  name: 'SmartPad',
+  spec: {
+    ram: 8
+  },
+  firstStorage: 256
+}
+{
+  _id: 5,
+  name: 'SmartPhone',
+  spec: {
+    ram: 4
+  },
+  firstStorage: 256
+}
+b.products.find({}, { "_id": 0, "spec.cpu": 1 })
+ReferenceError: b is not defined
+db.products.find({}, { "_id": 0, "spec.cpu": 1 })
+{
+  spec: {
+    cpu: 2.66
+  }
+}
+{
+  spec: {
+    cpu: 3.66
+  }
+}
+{
+  spec: {
+    cpu: 3.66
+  }
+}
+{
+  spec: {
+    cpu: 1.66
+  }
+}
+{
+  spec: {
+    cpu: 1.66
+  }
+}
+db.products.find({_id: 1}, {name: 1, price: 1, spec: {screen: 1}})
+{
+  _id: 1,
+  name: 'xPhone',
+  price: 799,
+  spec: {
+    screen: 6.5
+  }
+}
+db.products.aggregate([
+  {
+    $project: {
+      _id: 0,
+      storage: { $arrayElemAt: ["$storage", 1] }
+    }
+  }
+])
+{
+  storage: 128
+}
+{
+  storage: 256
+}
+{
+  storage: 64
+}
+{
+  storage: 256
+}
+{
+  storage: 256
+}
+db.products.find(
+ {},
+ {
+   name:1,
+   storage:{$slice:[1,1]},
+   _id:0
+ }
+)
+{
+  name: 'xPhone',
+  storage: [
+    128
+  ]
+}
+{
+  name: 'xTablet',
+  storage: [
+    256
+  ]
+}
+{
+  name: 'SmartTablet',
+  storage: [
+    64
+  ]
+}
+{
+  name: 'SmartPad',
+  storage: [
+    256
+  ]
+}
+{
+  name: 'SmartPhone',
+  storage: [
+    256
+  ]
+}
+drop products
+SyntaxError: Missing semicolon. (1:4)
+
+> 1 | drop products
+    |     ^
+db.products.drop()
+true
+db.products.insertMany([
+    { "_id" : 1, "name" : "xPhone", "price" : 799, "releaseDate": ISODate("2011-05-14"), "spec" : { "ram" : 4, "screen" : 6.5, "cpu" : 2.66 },"color":["white","black"],"storage":[64,128,256]},
+    { "_id" : 2, "name" : "xTablet", "price" : 899, "releaseDate": ISODate("2011-09-01") , "spec" : { "ram" : 16, "screen" : 9.5, "cpu" : 3.66 },"color":["white","black","purple"],"storage":[128,256,512]},
+    { "_id" : 3, "name" : "SmartTablet", "price" : 899, "releaseDate": ISODate("2015-01-14"), "spec" : { "ram" : 12, "screen" : 9.7, "cpu" : 3.66 },"color":["blue"],"storage":[16,64,128]},
+    { "_id" : 4, "name" : "SmartPad", "price" : 699, "releaseDate": ISODate("2020-05-14"),"spec" : { "ram" : 8, "screen" : 9.7, "cpu" : 1.66 },"color":["white","orange","gold","gray"],"storage":[128,256,1024]},
+    { "_id" : 5, "name" : "SmartPhone", "price" : 599,"releaseDate": ISODate("2022-09-14"), "spec" : { "ram" : 4, "screen" : 9.7, "cpu" : 1.66 },"color":["white","orange","gold","gray"],"storage":[128,256]}
+ ])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': 1,
+    '1': 2,
+    '2': 3,
+    '3': 4,
+    '4': 5
+  }
+}
+db.products.find({
+    color: {
+        $eq: "black"
+    }
+}, {
+    name: 1,
+    color: 1
+})
+{
+  _id: 1,
+  name: 'xPhone',
+  color: [
+    'white',
+    'black'
+  ]
+}
+{
+  _id: 2,
+  name: 'xTablet',
+  color: [
+    'white',
+    'black',
+    'purple'
+  ]
+}
+db.products.find({
+    price: {
+        $eq: 899
+    }
+}, {
+    name: 1,
+    price: 1
+})
+{
+  _id: 2,
+  name: 'xTablet',
+  price: 899
+}
+{
+  _id: 3,
+  name: 'SmartTablet',
+  price: 899
+}
+db.products.find({
+    "spec.ram": 4
+
+}, {
+    name: 1,
+    "spec.ram": 1
+})
+{
+  _id: 1,
+  name: 'xPhone',
+  spec: {
+    ram: 4
+  }
+}
+{
+  _id: 5,
+  name: 'SmartPhone',
+  spec: {
+    ram: 4
+  }
+}
+db.products.find({
+    price:899
+}, {
+    name: 1,
+    price: 1
+})
+{
+  _id: 2,
+  name: 'xTablet',
+  price: 899
+}
+{
+  _id: 3,
+  name: 'SmartTablet',
+  price: 899
+}
+db.products.find({
+    price: {
+        $lt: 799
+    }
+}, {
+    name: 1,
+    price: 1
+})
+{
+  _id: 4,
+  name: 'SmartPad',
+  price: 699
+}
+{
+  _id: 5,
+  name: 'SmartPhone',
+  price: 599
+}
+db.products.find({
+    "spec.screen": {
+        $lt: 7
+    }
+}, {
+    name: 1,
+    "spec.screen": 1
+})
+{
+  _id: 1,
+  name: 'xPhone',
+  spec: {
+    screen: 6.5
+  }
+}
+db.products.find({
+    storage: {
+        $lt: 128
+    }
+}, {
+    name: 1,
+    storage: 1
+})
+{
+  _id: 1,
+  name: 'xPhone',
+  storage: [
+    64,
+    128,
+    256
+  ]
+}
+{
+  _id: 3,
+  name: 'SmartTablet',
+  storage: [
+    16,
+    64,
+    128
+  ]
+}
